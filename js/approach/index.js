@@ -16,27 +16,70 @@
 
 // input: number
 // output: undefined
-function getPrimes(num) {
+// function getPrimes(num) {
 
-  for (let number = 2; number <= num; number += 1) {
-    // console.log('CHECKING NUMBER IS PRIME ' + number)
-    let counter = 0;
+//   for (let number = 2; number <= num; number += 1) {
+//     // console.log('CHECKING NUMBER IS PRIME ' + number)
+//     let counter = 0;
 
-    for (let index = 1; index <= number; index += 1) {
-      // console.log('STEP ' + index)
-      if (number % index === 0) {
-        // console.log('COUNTER FOUND' + index);
-        counter += 1;
-      }
-    }
-    // console.log('FOR NUMBER ' + number + ' COUNTER FOUND' + counter);
-    if (counter === 2) {
-      console.log(number);
+//     for (let index = 1; index <= number; index += 1) {
+//       // console.log('STEP ' + index)
+//       if (number % index === 0) {
+//         // console.log('COUNTER FOUND' + index);
+//         counter += 1;
+//       }
+//     }
+//     // console.log('FOR NUMBER ' + number + ' COUNTER FOUND' + counter);
+//     if (counter === 2) {
+//       console.log(number);
+//     }
+//   }
+// }
+
+// getPrimes(10);
+
+
+
+// function getPrimes(num) {
+//   for (let number = 2; number <= num; number++) {
+//     let isSimple = true;
+
+//     for (let index = 2; index < number; index++) {
+//       if (number % index === 0) {
+//         isSimple = false;
+//         break;
+//       }
+//     }
+
+//     if (isSimple) {
+//       console.log(number);
+//     }
+//   }
+// }
+// getPrimes(10);
+
+
+function isPrime(num) {
+  for (let index = 2; index < num; index++) {
+    if (num % index === 0) {
+      return false;
     }
   }
+
+  return true;
 }
 
-getPrimes(10);
+function getPrimes(num) {
+  const arrayOfNumbers = Array.from(Array(num - 1), (_, index) => index + 2);
+
+  arrayOfNumbers.forEach((number) => {
+    if (isPrime(number)) {
+      console.log(number);
+    }
+  });
+}
+getPrimes(15);
+
 
 // 10 ==> 2, 3, 5, 7;
 // 15 ==> 2, 3, 5, 7, 9, 11, 13,
