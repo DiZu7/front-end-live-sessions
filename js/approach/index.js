@@ -38,8 +38,6 @@
 
 // getPrimes(10);
 
-
-
 // function getPrimes(num) {
 //   for (let number = 2; number <= num; number++) {
 //     let isSimple = true;
@@ -58,27 +56,7 @@
 // }
 // getPrimes(10);
 
-
-function isPrime(num) {
-  for (let index = 2; index < num; index++) {
-    if (num % index === 0) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-function getPrimes(num) {
-  const arrayOfNumbers = Array.from(Array(num - 1), (_, index) => index + 2);
-
-  arrayOfNumbers.forEach((number) => {
-    if (isPrime(number)) {
-      console.log(number);
-    }
-  });
-}
-getPrimes(15);
+// 
 
 
 // 10 ==> 2, 3, 5, 7;
@@ -87,3 +65,53 @@ getPrimes(15);
 // 8 ==>
 // 1 ... 8
 // 2 ==> 8%2 === 0 - if
+
+// refactoting
+// input: number
+// output: boolean
+
+const isPrime = (number) => {
+  let counter = 0;
+
+  for (let index = 1; index <= number; index += 1) {
+    if (number % index === 0) {
+      counter += 1;
+    }
+  }
+  return counter === 2;
+};
+
+// input: number
+// output: undefined
+
+function getPrimes(num) {
+  for (let number = 2; number <= num; number += 1) {
+    if (isPrime(number)) {
+      console.log(number);
+    }
+  }
+}
+
+getPrimes(10);
+
+
+
+// function isPrime(num) {
+//   for (let index = 2; index < num; index++) {
+//     if (num % index === 0) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// function getPrimes(num) {
+//   const arrayOfNumbers = Array.from(Array(num - 1), (_, index) => index + 2);
+
+//   arrayOfNumbers.forEach((number) => {
+//     if (isPrime(number)) {
+//       console.log(number);
+//     }
+//   });
+// }
+// getPrimes(15);
