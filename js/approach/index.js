@@ -66,20 +66,29 @@
 // 1 ... 8
 // 2 ==> 8%2 === 0 - if
 
-// refactoting
+// refactored
 // input: number
 // output: boolean
 
-const isPrime = (number) => {
-  let counter = 0;
+// const isPrime = (number) => {
+//   let counter = 0;
 
-  for (let index = 1; index <= number; index += 1) {
-    if (number % index === 0) {
-      counter += 1;
+//   for (let index = 1; index <= number; index += 1) {
+//     if (number % index === 0) {
+//       counter += 1;
+//     }
+//   }
+//   return counter === 2;
+// };
+
+function isPrime(num) {
+  for (let index = 2; index < num; index++) {
+    if (num % index === 0) {
+      return false;
     }
   }
-  return counter === 2;
-};
+  return true;
+}
 
 // input: number
 // output: undefined
@@ -95,15 +104,6 @@ function getPrimes(num) {
 getPrimes(10);
 
 
-
-// function isPrime(num) {
-//   for (let index = 2; index < num; index++) {
-//     if (num % index === 0) {
-//       return false;
-//     }
-//   }
-//   return true;
-// }
 
 // function getPrimes(num) {
 //   const arrayOfNumbers = Array.from(Array(num - 1), (_, index) => index + 2);
