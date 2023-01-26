@@ -51,7 +51,7 @@ function onCreateTask() {
     return;
   }
 
-  tasks.push({ text: taskInputEl.value, done: false });
+  tasks.push({ id: String(Math.random()), text: taskInputEl.value, done: false });
   taskInputEl.value = '';
   renderTasks(tasks);
 }
